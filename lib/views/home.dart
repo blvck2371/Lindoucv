@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:lindoucv/componentview/CardOfCompetence.dart';
+import 'package:lindoucv/componentview/CardofRecentExperience.dart';
+import 'package:lindoucv/componentview/annimation.dart';
 import 'package:lindoucv/componentview/titleAndViewAll.dart';
 import 'package:lindoucv/theme/app_spacing.dart';
 
@@ -19,40 +21,6 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
-        leading: Container(
-          margin: EdgeInsets.only(left: 12),
-          child: CircleAvatar(
-            backgroundImage: AssetImage('assets/profil/photopp.jpg'),
-          ),
-        ),
-        title: Text(
-          'Lindou ngapout abdel Raoufou',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          Container(
-            margin: EdgeInsets.only(right: 20),
-            child: IconButton(
-              onPressed: () {
-                Get.find<ThemeController>().toggleTheme();
-              },
-              icon: Icon(
-                themeController.themeMode.value == ThemeMode.light
-                    ? Icons.dark_mode
-                    : Icons.light_mode,
-                size: 22,
-                color: themeController.themeMode.value == ThemeMode.light
-                    ? Theme.of(context).primaryColorLight
-                    : Theme.of(context).primaryColorDark,
-              ),
-            ),
-          ),
-        ],
-      ),
-
-      // corps de lapp
       body: SingleChildScrollView(
         child: Container(
           margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
@@ -208,11 +176,16 @@ class _HomeState extends State<Home> {
                           ),
                           const SizedBox(width: 32),
                           // Image plus grande et centrée
-                          const Center(
-                            child: CircleAvatar(
-                              radius: 80,
-                              backgroundImage: AssetImage(
-                                'assets/profil/photopp.jpg',
+                          DelayedAnimation(
+                            startOffsetX: 0.0,
+                            startOffsetY: -0.0,
+                            delay: 800,
+                            child: const Center(
+                              child: CircleAvatar(
+                                radius: 80,
+                                backgroundImage: AssetImage(
+                                  'assets/profil/photopp.jpg',
+                                ),
                               ),
                             ),
                           ),
@@ -363,87 +336,134 @@ class _HomeState extends State<Home> {
 
               // end technical expertise section
               // List of competencies
-              20.vSpace,
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 7),
+              DelayedAnimation(
+                delay: 300,
+                startOffsetX: -0.0,
+                startOffsetY: 0.2,
+
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Cardofcompetence(
-                      title: 'Langages de programmation',
-                      icone: Icons.code,
-                      list: [
-                        'JavaScript',
-                        'Python',
-                        'Java',
-                        'C++',
-                        'Dart',
-                        'PHP',
-                        'C#',
-                      ],
+                    20.vSpace,
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 7),
+                      child: Column(
+                        children: [
+                          Cardofcompetence(
+                            title: 'Langages de programmation',
+                            icone: Icons.code,
+                            list: [
+                              'JavaScript',
+                              'Python',
+                              'Java',
+                              'C++',
+                              'Dart',
+                              'PHP',
+                              'C#',
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
+                    15.vSpace,
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 7),
+                      child: Column(
+                        children: [
+                          Cardofcompetence(
+                            title: 'Frameworks et bibliothèques',
+                            icone: Icons.web,
+                            list: ['React', 'Angular', 'Vue.js', 'Flutter'],
+                          ),
+                        ],
+                      ),
+                    ),
+                    15.vSpace,
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 7),
+                      child: Column(
+                        children: [
+                          Cardofcompetence(
+                            title: 'Bases de données',
+                            icone: Icons.storage,
+                            list: ['MySQL', 'PostgreSQL', 'MongoDB', 'SQLite'],
+                          ),
+                        ],
+                      ),
+                    ),
+                    15.vSpace,
+                    //Outils de design et de prototypage
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 7),
+                      child: Column(
+                        children: [
+                          Cardofcompetence(
+                            title: 'Outils de design et de prototypage',
+                            icone: Icons.design_services,
+                            list: ['Figma', 'Adobe XD', 'Sketch', 'InVision'],
+                          ),
+                        ],
+                      ),
+                    ),
+                    15.vSpace,
+                    //Outils de gestion de projet
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 7),
+                      child: Column(
+                        children: [
+                          Cardofcompetence(
+                            title: 'Outils de gestion de projet',
+                            icone: Icons.task,
+                            list: ['Jira', 'Trello', 'Asana', 'Git'],
+                          ),
+                        ],
+                      ),
+                    ),
+                    15.vSpace,
                   ],
                 ),
               ),
-              15.vSpace,
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 7),
-                child: Column(
-                  children: [
-                    Cardofcompetence(
-                      title: 'Frameworks et bibliothèques',
-                      icone: Icons.web,
-                      list: ['React', 'Angular', 'Vue.js', 'Flutter'],
-                    ),
-                  ],
-                ),
-              ),
-              15.vSpace,
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 7),
-                child: Column(
-                  children: [
-                    Cardofcompetence(
-                      title: 'Bases de données',
-                      icone: Icons.storage,
-                      list: ['MySQL', 'PostgreSQL', 'MongoDB', 'SQLite'],
-                    ),
-                  ],
-                ),
-              ),
-              15.vSpace,
-              //Outils de design et de prototypage
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 7),
-                child: Column(
-                  children: [
-                    Cardofcompetence(
-                      title: 'Outils de design et de prototypage',
-                      icone: Icons.design_services,
-                      list: ['Figma', 'Adobe XD', 'Sketch', 'InVision'],
-                    ),
-                  ],
-                ),
-              ),
-              15.vSpace,
-              //Outils de gestion de projet
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 7),
-                child: Column(
-                  children: [
-                    Cardofcompetence(
-                      title: 'Outils de gestion de projet',
-                      icone: Icons.task,
-                      list: ['Jira', 'Trello', 'Asana', 'Git'],
-                    ),
-                  ],
-                ),
-              ),
-              15.vSpace,
 
               //fin de la liste des compétences
               Titleandviewall(
                 title: 'Expériences récentes',
-                subtitle: 'Faits saillants de mon expérience professionnelle',
+                subtitle:
+                    'Faits saillants de mes expériences professionnelles récentes',
+              ),
+
+              15.vSpace,
+
+              Cardofrecentexperience(
+                titre: 'Developpeement web & mobile avec Firebase',
+                description:
+                    ' dev web et mobile propre chez envol et durant cette période, jai travaillé sur des projets de développement web et mobile en utilisant Firebase comme backend. Jai conçu et développé des applications web et mobiles performantes, sécurisées et évolutives.  Jai également intégré des fonctionnalités telles que lauthentification des utilisateurs, la gestion des données en temps réel et le stockage de fichiers. Mon rôle a impliqué la collaboration avec des équipes multidisciplinaires pour assurer la qualité et la performance des applications. ',
+
+                datedebut: 'jan-2025',
+                datefin: 'présent',
+                entreprise: 'Envol',
+                poste: 'Developpeur web et mobile ',
+              ),
+
+              Cardofrecentexperience(
+                titre: 'Developpeement web & mobile avec Firebase',
+                description:
+                    ' dev web et mobile propre chez envol et durant cette période, jai travaillé sur des projets de développement web et mobile en utilisant Firebase comme backend. Jai conçu et développé des applications web et mobiles performantes, sécurisées et évolutives.  Jai également intégré des fonctionnalités telles que lauthentification des utilisateurs, la gestion des données en temps réel et le stockage de fichiers. Mon rôle a impliqué la collaboration avec des équipes multidisciplinaires pour assurer la qualité et la performance des applications. ',
+
+                datedebut: 'jan-2025',
+                datefin: 'présent',
+                entreprise: 'IEF2i',
+                poste: 'Developpeur web et mobile ',
+              ),
+
+              Cardofrecentexperience(
+                titre: 'Developpeement web & mobile avec Firebase',
+                description:
+                    ' dev web et mobile propre chez envol et durant cette période, jai travaillé sur des projets de développement web et mobile en utilisant Firebase comme backend. Jai conçu et développé des applications web et mobiles performantes, sécurisées et évolutives.  Jai également intégré des fonctionnalités telles que lauthentification des utilisateurs, la gestion des données en temps réel et le stockage de fichiers. Mon rôle a impliqué la collaboration avec des équipes multidisciplinaires pour assurer la qualité et la performance des applications. ',
+
+                datedebut: 'fev-2024 à jan-2025',
+                datefin: 'présent',
+                entreprise: 'IEF2i',
+                poste: 'Developpeur web et mobile ',
               ),
             ],
           ),

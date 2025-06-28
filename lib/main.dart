@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lindoucv/index.dart';
 import 'package:lindoucv/pages/pagedeux.dart';
 import 'package:lindoucv/theme/app_theme.dart';
 import 'package:lindoucv/theme/theme_controller.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         darkTheme: AppTheme.darkTheme,
 
         themeMode: themeController.themeMode.value,
-        home: Home(),
+        home: HomeScreen(),
       ),
     );
   }
