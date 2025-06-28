@@ -1,0 +1,385 @@
+import 'package:flutter/material.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:lindoucv/componentview/CardOfCompetence.dart';
+import 'package:lindoucv/componentview/titleAndViewAll.dart';
+import 'package:lindoucv/theme/app_spacing.dart';
+
+import 'package:lindoucv/theme/theme_controller.dart';
+
+class Home extends StatefulWidget {
+  const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  final ThemeController themeController = Get.find();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+        leading: Container(
+          margin: EdgeInsets.only(left: 12),
+          child: CircleAvatar(
+            backgroundImage: AssetImage('assets/profil/photopp.jpg'),
+          ),
+        ),
+        title: Text(
+          'Lindou ngapout abdel Raoufou',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        actions: [
+          Container(
+            margin: EdgeInsets.only(right: 20),
+            child: IconButton(
+              onPressed: () {
+                Get.find<ThemeController>().toggleTheme();
+              },
+              icon: Icon(
+                themeController.themeMode.value == ThemeMode.light
+                    ? Icons.dark_mode
+                    : Icons.light_mode,
+                size: 22,
+                color: themeController.themeMode.value == ThemeMode.light
+                    ? Theme.of(context).primaryColorLight
+                    : Theme.of(context).primaryColorDark,
+              ),
+            ),
+          ),
+        ],
+      ),
+
+      // corps de lapp
+      body: SingleChildScrollView(
+        child: Container(
+          margin: EdgeInsets.only(left: 20, right: 20),
+          child: Column(
+            children: [
+              25.vSpace,
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  bool isWide = constraints.maxWidth > 600;
+                  if (isWide) {
+                    // Mode paysage/tablette : image grande et centrée
+                    return Container(
+                      constraints: const BoxConstraints(
+                        minWidth: 0,
+                        maxWidth: double.infinity,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 24,
+                        horizontal: 20,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(255, 93, 70, 155),
+                            Color.fromARGB(255, 170, 156, 201),
+                            Color.fromARGB(255, 170, 156, 201),
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black,
+                            blurRadius: 10,
+                            offset: Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            flex: 2,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Sample Candidate',
+                                  style: TextStyle(
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                    vertical: 6,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  child: const Text(
+                                    'IT Professional | Project Manager | Engineer',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(height: 8),
+                                Text(
+                                  'Results-oriented professional with extensible and collaborative mindset.',
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                  ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                16.vSpace,
+                                Row(
+                                  children: [
+                                    Flexible(
+                                      child: ElevatedButton.icon(
+                                        onPressed: () {},
+                                        icon: Container(
+                                          padding: EdgeInsets.only(left: 15),
+                                          child: const Icon(
+                                            Icons.email_outlined,
+                                          ),
+                                        ),
+                                        label: Container(
+                                          padding: EdgeInsets.only(right: 15),
+                                          child: const Text('Contactez-Moi'),
+                                        ),
+                                        style: ElevatedButton.styleFrom(
+                                          backgroundColor: Colors.white,
+                                          foregroundColor: Color(0xFF4C2E84),
+                                          padding: const EdgeInsets.symmetric(
+                                            vertical: 14,
+                                          ),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              32,
+                                            ),
+                                          ),
+                                          textStyle: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    12.hSpace,
+                                    Flexible(
+                                      child: OutlinedButton.icon(
+                                        onPressed: () {},
+                                        icon: Container(
+                                          padding: EdgeInsets.only(left: 15),
+                                          child: const Icon(Icons.download),
+                                        ),
+                                        label: Container(
+                                          padding: EdgeInsets.only(right: 15),
+                                          child: const Text('Telecharger CV'),
+                                        ),
+                                        style: OutlinedButton.styleFrom(
+                                          side: const BorderSide(
+                                            color: Colors.white,
+                                          ),
+                                          foregroundColor: Colors.white,
+                                          padding: const EdgeInsets.symmetric(
+                                            vertical: 14,
+                                          ),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.circular(
+                                              32,
+                                            ),
+                                          ),
+                                          textStyle: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 32),
+                          // Image plus grande et centrée
+                          const Center(
+                            child: CircleAvatar(
+                              radius: 80,
+                              backgroundImage: AssetImage(
+                                'assets/profil/photopp.jpg',
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  } else {
+                    // Mode mobile : espacement réduit
+                    return Container(
+                      constraints: const BoxConstraints(
+                        minWidth: 0,
+                        maxWidth: double.infinity,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 12,
+                        horizontal: 12,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        gradient: LinearGradient(
+                          colors: [
+                            Color.fromARGB(255, 93, 70, 155),
+                            Color.fromARGB(255, 170, 156, 201),
+                            Color.fromARGB(255, 170, 156, 201),
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black12,
+                            blurRadius: 10,
+                            offset: Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            'Sample Candidate',
+                            style: TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(height: 6),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 12,
+                              vertical: 6,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white.withOpacity(0.2),
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: const Text(
+                              'IT Professional | Project Manager | Engineer',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 6),
+                          Text(
+                            'Results-oriented professional with extensible and collaborative mindset.',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          10.vSpace,
+                          Row(
+                            children: [
+                              Flexible(
+                                child: ElevatedButton.icon(
+                                  onPressed: () {},
+                                  icon: Container(
+                                    padding: EdgeInsets.only(left: 10),
+                                    child: const Icon(Icons.email_outlined),
+                                  ),
+                                  label: Container(
+                                    padding: EdgeInsets.only(right: 10),
+                                    child: const Text('Contactez-Moi'),
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.white,
+                                    foregroundColor: Color(0xFF4C2E84),
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 10,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(32),
+                                    ),
+                                    textStyle: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              8.hSpace,
+                              Flexible(
+                                child: OutlinedButton.icon(
+                                  onPressed: () {},
+                                  icon: Container(
+                                    padding: EdgeInsets.only(left: 10),
+                                    child: const Icon(Icons.download),
+                                  ),
+                                  label: Container(
+                                    padding: EdgeInsets.only(right: 10),
+                                    child: const Text('Telecharger CV'),
+                                  ),
+                                  style: OutlinedButton.styleFrom(
+                                    side: const BorderSide(color: Colors.white),
+                                    foregroundColor: Colors.white,
+                                    padding: const EdgeInsets.symmetric(
+                                      vertical: 10,
+                                    ),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(32),
+                                    ),
+                                    textStyle: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+                },
+              ),
+
+              // technical expertise section
+              25.vSpace,
+              Titleandviewall(
+                title: 'Expertise Technique',
+                subtitle: 'Compétences & technologies de spécialisation',
+              ),
+
+              // end technical expertise section
+              // List of competencies
+              20.vSpace,
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 7),
+                child: Column(
+                  children: [
+                    Cardofcompetence(
+                      title: 'Langages de programmation',
+                      icone: Icons.code,
+                      list: ['JavaScript', 'Python', 'Java', 'C++', 'Dart'],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
