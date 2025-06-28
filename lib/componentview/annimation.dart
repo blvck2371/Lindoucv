@@ -22,6 +22,8 @@ class _DelayedAnimationState extends State<DelayedAnimation>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<Offset> _animOffset;
+  Timer? _timer;
+
   @override
   void initState() {
     super.initState();
@@ -41,11 +43,21 @@ class _DelayedAnimationState extends State<DelayedAnimation>
       end: Offset.zero,
     ).animate(curve);
 
-    Timer(Duration(milliseconds: widget.delay), () {
-      _controller.forward();
+    _timer = Timer(Duration(milliseconds: widget.delay), () {
+      if (mounted) {
+        _controller.forward();
+      }
     });
   }
 
+  @override
+  void dispose() {
+    _timer?.cancel();
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return FadeTransition(
       opacity: _controller,

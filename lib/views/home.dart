@@ -75,7 +75,7 @@ class _HomeState extends State<Home> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   const Text(
-                                    'Sample Candidate',
+                                    'Mon Profil',
                                     style: TextStyle(
                                       fontSize: 22,
                                       fontWeight: FontWeight.bold,
@@ -93,7 +93,7 @@ class _HomeState extends State<Home> {
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: const Text(
-                                      'IT Professional | Project Manager | Engineer',
+                                      'Professionnel en informatique | Chef de projet | Etudiant',
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: Colors.white,
@@ -102,7 +102,7 @@ class _HomeState extends State<Home> {
                                   ),
                                   const SizedBox(height: 8),
                                   Text(
-                                    'Results-oriented professional with extensible and collaborative mindset.',
+                                    'Expert en stratégie digitale passionné par l\'innovation technologique.',
                                     style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 16,
@@ -235,7 +235,7 @@ class _HomeState extends State<Home> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                              'Sample Candidate',
+                              'Mon Profil',
                               style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
@@ -253,7 +253,7 @@ class _HomeState extends State<Home> {
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: const Text(
-                                'IT Professional | Project Manager | Engineer',
+                                'Professionnel en informatique | Chef de projet | Etudiant',
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
@@ -262,7 +262,7 @@ class _HomeState extends State<Home> {
                             ),
                             const SizedBox(height: 6),
                             Text(
-                              'Results-oriented professional with extensible and collaborative mindset.',
+                              'Spécialiste du développement web & mobile et de la stratégie digitale',
                               style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 16,

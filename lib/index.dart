@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
 import 'package:lindoucv/theme/theme_controller.dart';
+import 'package:lindoucv/views/Competences.dart';
 import 'package:lindoucv/views/Contact.dart';
+import 'package:lindoucv/views/Experiences.dart';
 import 'package:lindoucv/views/home.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -17,9 +19,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _pages = const [
     Home(),
-    ContactPage(),
-    Home(),
-    ContactPage(),
+    
+    Experiences(),
+  Competences(),
+   ContactPage(),    
+    //ContactPage(),
   ];
 
   @override
@@ -109,12 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: Icon(Icons.home), // OK pour Accueil
             label: 'Accueil',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.perm_contact_calendar,
-            ), // mieux adapté à "Contacts"
-            label: 'Contacts',
-          ),
+         
           BottomNavigationBarItem(
             icon: Icon(
               Icons.work_outline,
@@ -126,11 +125,17 @@ class _HomeScreenState extends State<HomeScreen> {
               Icons.auto_graph,
             ), // plus représentatif pour "Compétences"
             label: 'Compétences',
-          ),
+          ), 
           BottomNavigationBarItem(
-            icon: Icon(Icons.workspace_premium), // pour "Certifications"
-            label: 'Certifications',
+            icon: Icon(
+              Icons.perm_contact_calendar,
+            ), // mieux adapté à "Contacts"
+            label: 'Contacts',
           ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.workspace_premium), // pour "Certifications"
+          //   label: 'Certifications',
+          // ),
         ],
       ),
     );

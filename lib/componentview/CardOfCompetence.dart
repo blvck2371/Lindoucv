@@ -41,7 +41,12 @@ class _CardofcompetenceState extends State<Cardofcompetence> {
                 ),
               ),
               SizedBox(width: 10),
-              Text(widget.title, style: Theme.of(context).textTheme.labelLarge),
+              Expanded(
+                child: Text(
+                  widget.title,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+              ),
             ],
           ),
           SizedBox(height: 10),
@@ -55,7 +60,7 @@ class _CardofcompetenceState extends State<Cardofcompetence> {
                       color: Theme.of(context).primaryColorDark,
                     ),
                     5.hSpace,
-                    Text(item),
+                    Expanded(child: Text(item)),
                   ],
                 ),
               )
