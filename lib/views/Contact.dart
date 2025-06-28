@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:lindoucv/componentview/ContactTile.dart';
+import 'package:lindoucv/componentview/annimation.dart';
 import 'package:lindoucv/theme/app_spacing.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatelessWidget {
   const ContactPage({Key? key}) : super(key: key);
 
-  void _launchUrl(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
+  Future<void> _launchUrl(String url) async {
+    try {
+      final Uri uri = Uri.parse(url);
+      if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+        debugPrint('Impossible d’ouvrir l’URL : $url');
+      }
+    } catch (e) {
+      debugPrint('Erreur lors de l’ouverture de l’URL : $url\n$e');
     }
   }
 
@@ -17,7 +22,6 @@ class ContactPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF0F0F10),
-
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
@@ -25,7 +29,10 @@ class ContactPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Contact Me', style: TextStyle(fontSize: 18)),
+                const Text(
+                  'Contact Me',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
                 12.vSpace,
                 ConstrainedBox(
                   constraints: BoxConstraints(minHeight: constraints.maxHeight),
@@ -35,39 +42,62 @@ class ContactPage extends StatelessWidget {
                       children: [
                         const Text(
                           'Feel free to reach out for collaboration, questions, or just to say hello!',
+                          style: TextStyle(color: Colors.white70),
                         ),
                         const SizedBox(height: 20),
 
-                        ContactTile(
-                          icon: Icons.email,
-                          title: 'Email',
-                          subtitle: 'lindoungapoutabdel@gmail.com',
-                          onTap: () =>
-                              _launchUrl('mailto:lindoungapoutabdel@gmail.com'),
+                        DelayedAnimation(
+                          delay: 300,
+                          startOffsetX: -0.0,
+                          startOffsetY: 0.2,
+                          child: ContactTile(
+                            icon: Icons.email,
+                            title: 'Email',
+                            subtitle: 'lindoungapoutabdel@gmail.com',
+                            onTap: () {
+                              _launchUrl('mailto:lindoungapoutabdel@gmail.com');
+                            },
+                          ),
                         ),
-                        ContactTile(
-                          icon: Icons.phone,
-                          title: 'Telephone',
-                          subtitle: '+33745496306',
-                          onTap: () => _launchUrl('tel:+33745496306'),
+                        DelayedAnimation(
+                          delay: 400,
+                          startOffsetX: -0.0,
+                          startOffsetY: 0.2,
+                          child: ContactTile(
+                            icon: Icons.phone,
+                            title: 'Téléphone',
+                            subtitle: '+33 7 45 49 63 06',
+                            onTap: () => _launchUrl('tel:+33745496306'),
+                          ),
                         ),
-                        ContactTile(
-                          icon: Icons.message,
-                          title: 'MS-Teams/Telegram',
-                          subtitle: 'sultan_brunel',
-                          onTap: () => _launchUrl('https://t.me/+237691322304'),
+                        DelayedAnimation(
+                          delay: 500,
+                          startOffsetX: -0.0,
+                          startOffsetY: 0.2,
+                          child: ContactTile(
+                            icon: Icons.message,
+                            title: 'MS-Teams / Telegram',
+                            subtitle: 'sultan_brunel',
+                            onTap: () =>
+                                _launchUrl('https://t.me/+237691322304'),
+                          ),
                         ),
-                        ContactTile(
-                          icon: Icons.link,
-                          title: 'LinkedIn',
-                          subtitle:
-                              '/www.linkedin.com/in/abdel-raoufou-lindou-ngapout-339835328/',
-                          onTap: () => _launchUrl(
-                            'https://www.linkedin.com/in/abdel-raoufou-lindou-ngapout-339835328/',
+                        DelayedAnimation(
+                          delay: 400,
+                          startOffsetX: -0.0,
+                          startOffsetY: 0.2,
+                          child: ContactTile(
+                            icon: Icons.link,
+                            title: 'LinkedIn',
+                            subtitle:
+                                'linkedin.com/in/abdel-raoufou-lindou-ngapout-339835328/',
+                            onTap: () => _launchUrl(
+                              'https://www.linkedin.com/in/abdel-raoufou-lindou-ngapout-339835328/',
+                            ),
                           ),
                         ),
 
-                        const Spacer(), // pousse le contenu vers le haut sur grand écran
+                        const Spacer(),
                       ],
                     ),
                   ),

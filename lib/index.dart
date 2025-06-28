@@ -102,15 +102,34 @@ class _HomeScreenState extends State<HomeScreen> {
         currentIndex: _currentIndex,
         onTap: _onTabTapped,
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: Colors.teal,
+        selectedItemColor: Theme.of(context).primaryColorDark,
         unselectedItemColor: Colors.grey,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Accueil'),
-          BottomNavigationBarItem(icon: Icon(Icons.chat), label: 'Contacts'),
-          BottomNavigationBarItem(icon: Icon(Icons.call), label: 'Appels'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Paramètres',
+            icon: Icon(Icons.home), // OK pour Accueil
+            label: 'Accueil',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.perm_contact_calendar,
+            ), // mieux adapté à "Contacts"
+            label: 'Contacts',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.work_outline,
+            ), // mieux que "call" pour "Expériences"
+            label: 'Expériences',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.auto_graph,
+            ), // plus représentatif pour "Compétences"
+            label: 'Compétences',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.workspace_premium), // pour "Certifications"
+            label: 'Certifications',
           ),
         ],
       ),
