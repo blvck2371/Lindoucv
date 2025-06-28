@@ -45,12 +45,14 @@ class Titleandviewall extends StatelessWidget {
           15.vSpace,
           Row(
             children: [
-              Text(
-                this.subtitle,
-                style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  fontSize: 15,
-                  letterSpacing: sqrt1_2,
+              Expanded(
+                child: Text(
+                  this.subtitle,
+                  style: TextStyle(
+                    fontWeight: FontWeight.normal,
+                    fontSize: 15,
+                    letterSpacing: sqrt1_2,
+                  ),
                 ),
               ),
             ],
