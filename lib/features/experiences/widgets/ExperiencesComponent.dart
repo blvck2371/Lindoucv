@@ -71,7 +71,7 @@ class Experiencescomponent extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  4.vSpace,
+                  3.vSpace,
                   Text(
                     subtitle,
                     style: Theme.of(context).textTheme.labelLarge?.copyWith(
@@ -93,7 +93,7 @@ class Experiencescomponent extends StatelessWidget {
                       fontStyle: FontStyle.italic,
                     ),
                   ),
-                  10.vSpace,
+                  8.vSpace,
 
                   /// Responsabilités
                   ...responsabilites.map(

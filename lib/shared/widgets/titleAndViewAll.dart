@@ -22,20 +22,23 @@ class Titleandviewall extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  // Action for "View All"
+                  // Action for "Voir tout"
                 },
                 child: Row(
                   children: [
+                    Text(
+                      'Voir tout',
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColorDark,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                      ),
+                    ),
+                    SizedBox(width: 4),
                     Icon(
                       Icons.arrow_forward,
                       size: 16,
-                      color: Theme.of(context).dialogBackgroundColor,
-                    ),
-                    Text(
-                      'View All',
-                      style: TextStyle(
-                        color: Theme.of(context).dialogBackgroundColor,
-                      ),
+                      color: Theme.of(context).primaryColorDark,
                     ),
                   ],
                 ),

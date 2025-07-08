@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         title: Text(
-          'Lindou ngapout abdel Raoufou',
+          'Lindou Ngapout Abdel Raoufou',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         actions: [

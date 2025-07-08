@@ -37,23 +37,24 @@ class Cardofrecentexperience extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor.withOpacity(0.8),
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(16),
               ),
               child: Text(
                 '$datedebut - $datefin',
                 style: const TextStyle(
                   color: Colors.white,
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12,
                 ),
                 overflow: TextOverflow.ellipsis,
               ),
             ),
           ),
 
-          12.vSpace,
+          10.vSpace,
 
           /// Titre
           Text(
@@ -64,7 +65,7 @@ class Cardofrecentexperience extends StatelessWidget {
             textAlign: TextAlign.start,
           ),
 
-          10.vSpace,
+          8.vSpace,
 
           /// Entreprise
           Row(
@@ -81,7 +82,7 @@ class Cardofrecentexperience extends StatelessWidget {
             ],
           ),
 
-          6.vSpace,
+          4.vSpace,
 
           /// Poste
           Row(
@@ -98,7 +99,7 @@ class Cardofrecentexperience extends StatelessWidget {
             ],
           ),
 
-          12.vSpace,
+          10.vSpace,
 
           /// Description
           Text('Description:', style: Theme.of(context).textTheme.labelLarge),

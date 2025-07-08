@@ -339,7 +339,7 @@ class _HomeState extends State<Home> {
               ),
 
               // technical expertise section
-              25.vSpace,
+              20.vSpace,
               Titleandviewall(
                 title: 'Expertise Technique',
                 subtitle: 'Compétences & technologies de spécialisation',
@@ -355,7 +355,7 @@ class _HomeState extends State<Home> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    20.vSpace,
+                    15.vSpace,
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 7),
                       child: Column(
@@ -376,7 +376,7 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
-                    15.vSpace,
+                    10.vSpace,
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 7),
                       child: Column(
@@ -389,7 +389,7 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
-                    15.vSpace,
+                    10.vSpace,
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 7),
                       child: Column(
@@ -402,7 +402,7 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
-                    15.vSpace,
+                    10.vSpace,
                     //Outils de design et de prototypage
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 7),
@@ -416,7 +416,7 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
-                    15.vSpace,
+                    10.vSpace,
                     //Outils de gestion de projet
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 7),
@@ -430,40 +430,41 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
-                    15.vSpace,
+                    10.vSpace,
                   ],
                 ),
               ),
 
               //fin de la liste des compétences
+              20.vSpace,
               Titleandviewall(
                 title: 'Expériences récentes',
                 subtitle:
-                    'Faits saillants de mes expériences professionnelles récentes',
+                    'Mes expériences professionnelles les plus significatives',
               ),
 
               15.vSpace,
 
               Cardofrecentexperience(
-                titre: 'Developpeement web & mobile avec Firebase',
+                titre: 'Développement web & mobile avec Firebase',
                 description:
-                    ' dev web et mobile propre chez envol et durant cette période, jai travaillé sur des projets de développement web et mobile en utilisant Firebase comme backend. Jai conçu et développé des applications web et mobiles performantes, sécurisées et évolutives.  Jai également intégré des fonctionnalités telles que lauthentification des utilisateurs, la gestion des données en temps réel et le stockage de fichiers. Mon rôle a impliqué la collaboration avec des équipes multidisciplinaires pour assurer la qualité et la performance des applications. ',
+                    'Développement web et mobile chez Envol. Durant cette période, j\'ai travaillé sur des projets de développement web et mobile en utilisant Firebase comme backend. J\'ai conçu et développé des applications web et mobiles performantes, sécurisées et évolutives. J\'ai également intégré des fonctionnalités telles que l\'authentification des utilisateurs, la gestion des données en temps réel et le stockage de fichiers. Mon rôle a impliqué la collaboration avec des équipes multidisciplinaires pour assurer la qualité et la performance des applications.',
 
-                datedebut: 'jan-2025',
-                datefin: 'présent',
+                datedebut: 'Janvier 2025',
+                datefin: 'Présent',
                 entreprise: 'Envol',
-                poste: 'Developpeur web et mobile ',
+                poste: 'Développeur web et mobile',
               ),
 
               Cardofrecentexperience(
-                titre: 'Developpeement web & mobile avec Firebase',
+                titre: 'Développement d\'applications Flutter',
                 description:
-                    ' dev web et mobile propre chez envol et durant cette période, jai travaillé sur des projets de développement web et mobile en utilisant Firebase comme backend. Jai conçu et développé des applications web et mobiles performantes, sécurisées et évolutives.  Jai également intégré des fonctionnalités telles que lauthentification des utilisateurs, la gestion des données en temps réel et le stockage de fichiers. Mon rôle a impliqué la collaboration avec des équipes multidisciplinaires pour assurer la qualité et la performance des applications. ',
+                    'Développement d\'applications mobiles multiplateformes avec Flutter. J\'ai créé des interfaces utilisateur réactives et performantes, intégré des API RESTful, et implémenté des fonctionnalités avancées comme la gestion d\'état, la navigation et l\'optimisation des performances. Collaboration étroite avec les équipes de design pour assurer une expérience utilisateur optimale.',
 
-                datedebut: 'jan-2025',
-                datefin: 'présent',
-                entreprise: 'IEF2i',
-                poste: 'Developpeur web et mobile ',
+                datedebut: 'Septembre 2024',
+                datefin: 'Décembre 2024',
+                entreprise: 'Projet personnel',
+                poste: 'Développeur Flutter',
               ),
 
               Cardofrecentexperience(

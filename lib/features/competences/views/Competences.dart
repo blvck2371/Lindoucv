@@ -41,27 +41,27 @@ class _CompetencesState extends State<Competences> {
     'PHP, JavaScript, HTML/CSS',
   ],
 ),
-15.vSpace,
+10.vSpace,
 Cardofcompetence(
   title: 'Développement Mobile & UI',
   icone: Icons.smartphone_outlined,
   list: [
-    'Création d’interfaces utilisateurs réactives (Widgets)',
+    'Création d\'interfaces utilisateurs réactives (Widgets)',
     'Responsive design & Material Design',
     'Architecture MVC, MVVM, Clean Architecture',
   ],
 ),
-15.vSpace,
+10.vSpace,
 Cardofcompetence(
   title: 'API & Backend',
   icone: Icons.cloud_sync_outlined,
   list: [
-    'Intégration d’API RESTful (http, dio)',
+    'Intégration d\'API RESTful (http, dio)',
     'Firebase Auth, JWT (authentification sécurisée)',
     'Communication client-serveur efficace',
   ],
 ),
-15.vSpace,
+10.vSpace,
 Cardofcompetence(
   title: 'Bases de Données',
   icone: Icons.storage_outlined,

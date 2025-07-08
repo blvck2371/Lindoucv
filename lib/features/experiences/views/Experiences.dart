@@ -50,7 +50,7 @@ class _ExperiencesState extends State<Experiences> {
                     ],
                   ),
                   
-                  20.vSpace,
+                  15.vSpace,
                   
                   Experiencescomponent(
                     title: 'Stagiaire Développeur web',
