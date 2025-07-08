@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:lindoucv/theme/app_spacing.dart';
+import 'package:lindoucv/core/theme/app_spacing.dart';
 
 class Titleandviewall extends StatelessWidget {
   Titleandviewall({super.key, required this.title, required this.subtitle});
@@ -29,12 +29,12 @@ class Titleandviewall extends StatelessWidget {
                     Icon(
                       Icons.arrow_forward,
                       size: 16,
-                      color: Theme.of(context).primaryColorDark,
+                      color: Theme.of(context).dialogBackgroundColor,
                     ),
                     Text(
                       'View All',
                       style: TextStyle(
-                        color: Theme.of(context).primaryColorDark,
+                        color: Theme.of(context).dialogBackgroundColor,
                       ),
                     ),
                   ],

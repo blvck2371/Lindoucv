@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
-import 'package:lindoucv/componentview/CardOfCompetence.dart';
-import 'package:lindoucv/componentview/CardofRecentExperience.dart';
-import 'package:lindoucv/componentview/annimation.dart';
-import 'package:lindoucv/componentview/titleAndViewAll.dart';
-import 'package:lindoucv/theme/app_spacing.dart';
+import 'package:lindoucv/features/competences/widgets/CardOfCompetence.dart';
+import 'package:lindoucv/features/home/widgets/CardofRecentExperience.dart';
+import 'package:lindoucv/shared/widgets/annimation.dart';
+import 'package:lindoucv/shared/widgets/titleAndViewAll.dart';
+import 'package:lindoucv/core/theme/app_spacing.dart';
 
-import 'package:lindoucv/theme/theme_controller.dart';
+import 'package:lindoucv/core/theme/theme_controller.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

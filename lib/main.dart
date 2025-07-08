@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lindoucv/index.dart';
-import 'package:lindoucv/pages/pagedeux.dart';
-import 'package:lindoucv/theme/app_theme.dart';
-import 'package:lindoucv/theme/theme_controller.dart';
-import 'package:lindoucv/views/home.dart';
+import 'package:lindoucv/features/home/views/pagedeux.dart';
+import 'package:lindoucv/core/theme/app_theme.dart';
+import 'package:lindoucv/core/theme/theme_controller.dart';
+import 'package:lindoucv/features/home/views/home.dart';
 
 void main() {
   Get.put(ThemeController());

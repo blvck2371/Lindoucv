@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lindoucv/theme/app_spacing.dart';
+import 'package:lindoucv/core/theme/app_spacing.dart';
 
 class Cardofcompetence extends StatefulWidget {
   const Cardofcompetence({
@@ -34,6 +34,7 @@ class _CardofcompetenceState extends State<Cardofcompetence> {
           Row(
             children: [
               CircleAvatar(
+                backgroundColor: Theme.of(context).dialogBackgroundColor,
                 child: Icon(
                   widget.icone,
                   size: 30,
@@ -56,8 +57,8 @@ class _CardofcompetenceState extends State<Cardofcompetence> {
                   children: [
                     Icon(
                       Icons.check_circle_outline,
-                      size: 15,
-                      color: Theme.of(context).primaryColorDark,
+                      size: 20,
+                      color: Theme.of(context).dialogBackgroundColor,
                     ),
                     5.hSpace,
                     Expanded(child: Text(item)),

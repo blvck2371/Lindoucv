@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lindoucv/componentview/ContactTile.dart';
-import 'package:lindoucv/componentview/annimation.dart';
-import 'package:lindoucv/theme/app_spacing.dart';
+import 'package:lindoucv/features/contact/widgets/ContactTile.dart';
+import 'package:lindoucv/shared/widgets/annimation.dart';
+import 'package:lindoucv/core/theme/app_spacing.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatelessWidget {

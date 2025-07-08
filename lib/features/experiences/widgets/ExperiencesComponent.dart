@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lindoucv/theme/app_spacing.dart';
+import 'package:lindoucv/core/theme/app_spacing.dart';
 
 class Experiencescomponent extends StatelessWidget {
   final String title;

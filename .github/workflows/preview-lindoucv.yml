@@ -1,0 +1,60 @@
+name: Preview LindouCV on Pull Request
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build_and_preview:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'
+          channel: 'stable'
+          
+      - name: Get dependencies
+        run: flutter pub get
+        
+      - name: Build web app
+        run: flutter build web --release
+        
+      - name: Deploy to Firebase Hosting Preview
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MYTODO_C0F69 }}'
+          projectId: mytodo-c0f69
+          
+      - name: Comment PR with preview URL
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: deployments } = await github.rest.repos.listDeployments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              environment: 'preview'
+            });
+            
+            if (deployments.length > 0) {
+              const latestDeployment = deployments[0];
+              const previewUrl = `https://mytodo-c0f69--pr-${context.issue.number}.web.app`;
+              
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `🚀 **Preview déployé avec succès!**
+                
+                📱 **URL de preview**: ${previewUrl}
+                
+                Votre CV est maintenant disponible en preview pour cette PR!`
+              });
+            } 

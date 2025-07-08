@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lindoucv/componentview/CardOfCompetence.dart';
-import 'package:lindoucv/theme/app_spacing.dart';
+import 'package:lindoucv/features/competences/widgets/CardOfCompetence.dart';
+import 'package:lindoucv/core/theme/app_spacing.dart';
 
 class Competences extends StatefulWidget {
   const Competences({super.key});
