@@ -41,7 +41,7 @@ class ContactPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          'Feel free to reach out for collaboration, questions, or just to say hello!',
+                          'N\'hésitez pas à me contacter pour une collaboration, des questions ou simplement pour dire bonjour ! ',
                           style: TextStyle(color: Colors.white70),
                         ),
                         const SizedBox(height: 20),
