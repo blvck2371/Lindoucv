@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lindoucv/features/experiences/widgets/ExperiencesComponent.dart';
 import 'package:lindoucv/core/theme/app_spacing.dart';
+import 'package:lindoucv/shared/widgets/annimation.dart';
 
 class Experiences extends StatefulWidget {
   const Experiences({super.key});

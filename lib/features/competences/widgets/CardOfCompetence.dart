@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lindoucv/core/theme/app_spacing.dart';
+import 'package:lindoucv/core/theme/app_colors.dart';
 
 class Cardofcompetence extends StatefulWidget {
   const Cardofcompetence({
@@ -25,13 +26,16 @@ class _CardofcompetenceState extends State<Cardofcompetence> {
     return Container(
       padding: EdgeInsets.all(isMobile ? 16 : 12),
       decoration: BoxDecoration(
-        color: Theme.of(context).primaryColorLight,
+        color: Theme.of(context).brightness == Brightness.light 
+            ? AppColors.cardBackgroundLight 
+            : AppColors.cardBackgroundDark,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black26, 
-            blurRadius: 4, 
-            offset: Offset(0, 2)
+            color: AppColors.shadowLight.withOpacity(0.005),
+            blurRadius: 0.5,
+            offset: const Offset(0, 0.2),
+            spreadRadius: 0,
           ),
         ],
       ),
@@ -48,7 +52,7 @@ class _CardofcompetenceState extends State<Cardofcompetence> {
                 child: Icon(
                   widget.icone,
                   size: isMobile ? 24 : 20,
-                  color: Theme.of(context).primaryColorDark,
+                  color: Theme.of(context).primaryColor,
                 ),
               ),
               SizedBox(width: isMobile ? 12 : 8),
@@ -77,7 +81,7 @@ class _CardofcompetenceState extends State<Cardofcompetence> {
                 Icon(
                   Icons.check_circle_outline,
                   size: isMobile ? 18 : 16,
-                  color: Theme.of(context).primaryColorDark,
+                  color: Theme.of(context).primaryColor,
                 ),
                 SizedBox(width: isMobile ? 8 : 6),
                 Expanded(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lindoucv/core/theme/app_spacing.dart';
+import 'package:lindoucv/core/theme/app_colors.dart';
 import 'package:readmore/readmore.dart';
 
 class Cardofrecentexperience extends StatelessWidget {
@@ -29,10 +30,17 @@ class Cardofrecentexperience extends StatelessWidget {
           padding: EdgeInsets.all(isMobile ? 20 : 16),
           margin: EdgeInsets.symmetric(vertical: isMobile ? 12 : 8),
           decoration: BoxDecoration(
-            color: Theme.of(context).primaryColorLight,
+            color: Theme.of(context).brightness == Brightness.light 
+                ? AppColors.cardBackgroundLight 
+                : AppColors.cardBackgroundDark,
             borderRadius: BorderRadius.circular(12),
             boxShadow: [
-              BoxShadow(color: Colors.black26, blurRadius: 6, offset: Offset(0, 3)),
+              BoxShadow(
+                color: AppColors.shadowLight.withOpacity(0.005),
+                blurRadius: 0.5,
+                offset: const Offset(0, 0.2),
+                spreadRadius: 0,
+              ),
             ],
           ),
           child: Column(
@@ -48,13 +56,13 @@ class Cardofrecentexperience extends StatelessWidget {
                     vertical: isMobile ? 8 : 6
                   ),
                   decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor.withOpacity(0.8),
+                    color: Theme.of(context).primaryColor,
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Text(
                     '$datedebut - $datefin',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Theme.of(context).colorScheme.onPrimary,
                       fontWeight: FontWeight.w600,
                       fontSize: isMobile ? 14 : 12,
                     ),
@@ -141,16 +149,16 @@ class Cardofrecentexperience extends StatelessWidget {
                 child: ReadMoreText(
                   description,
                   trimLines: isMobile ? 3 : 1,
-                  colorClickableText: Theme.of(context).primaryColorDark,
+                  colorClickableText: Theme.of(context).primaryColor,
                   trimCollapsedText: '... Lire plus',
                   trimExpandedText: ' Réduire',
                   moreStyle: TextStyle(
-                    color: Theme.of(context).primaryColorDark,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: isMobile ? 14 : null,
                   ),
                   lessStyle: TextStyle(
-                    color: Theme.of(context).primaryColorDark,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: isMobile ? 14 : null,
                   ),
@@ -161,7 +169,7 @@ class Cardofrecentexperience extends StatelessWidget {
                   ),
                   trimMode: TrimMode.Line,
                   delimiterStyle: TextStyle(
-                    color: Theme.of(context).primaryColorDark,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

@@ -29,7 +29,7 @@ class Titleandviewall extends StatelessWidget {
                     Text(
                       'Voir tout',
                       style: TextStyle(
-                        color: Theme.of(context).primaryColorDark,
+                        color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.w600,
                         fontSize: 14,
                       ),
@@ -38,7 +38,7 @@ class Titleandviewall extends StatelessWidget {
                     Icon(
                       Icons.arrow_forward,
                       size: 16,
-                      color: Theme.of(context).primaryColorDark,
+                      color: Theme.of(context).primaryColor,
                     ),
                   ],
                 ),

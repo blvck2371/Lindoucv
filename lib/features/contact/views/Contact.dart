@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lindoucv/features/contact/widgets/ContactTile.dart';
 import 'package:lindoucv/shared/widgets/annimation.dart';
 import 'package:lindoucv/core/theme/app_spacing.dart';
+import 'package:lindoucv/core/theme/app_colors.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatelessWidget {
@@ -21,7 +22,7 @@ class ContactPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF0F0F10),
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
@@ -29,9 +30,12 @@ class ContactPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'Contactez-moi',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
+                  style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onBackground,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 12.vSpace,
                 ConstrainedBox(
@@ -40,9 +44,11 @@ class ContactPage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
+                        Text(
                           'N\'hésitez pas à me contacter pour une collaboration, des questions ou simplement pour dire bonjour ! ',
-                          style: TextStyle(color: Colors.white70),
+                          style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                            color: Theme.of(context).colorScheme.onBackground.withOpacity(0.8),
+                          ),
                         ),
                         const SizedBox(height: 20),
 
