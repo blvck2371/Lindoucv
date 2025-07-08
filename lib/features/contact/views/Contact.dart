@@ -30,7 +30,7 @@ class ContactPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'Contact Me',
+                  'Contactez-moi',
                   style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
                 12.vSpace,
