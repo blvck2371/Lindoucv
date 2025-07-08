@@ -16,6 +16,7 @@ class ExperienceGrid extends StatelessWidget {
       builder: (context, constraints) {
         final screenWidth = MediaQuery.of(context).size.width;
         final isMobile = screenWidth < 600;
+        final availableWidth = constraints.maxWidth;
         
         // Sur mobile, utiliser une colonne simple sans contraintes de hauteur
         if (isMobile) {
@@ -34,52 +35,34 @@ class ExperienceGrid extends StatelessWidget {
           );
         }
         
-        // Déterminer la largeur maximale des colonnes selon la largeur d'écran
-        double maxCrossAxisExtent;
-        double childAspectRatio;
-        double horizontalPadding;
+        // Déterminer la largeur des cartes selon la largeur d'écran
+        double cardWidth;
         
         if (screenWidth > 1200) {
           // Desktop large - 2 colonnes
-          maxCrossAxisExtent = 600;
-          childAspectRatio = 1.8;
-          horizontalPadding = 40;
+          cardWidth = (availableWidth - 20) / 2; // 20 = spacing
         } else if (screenWidth > 900) {
           // Desktop normal - 2 colonnes
-          maxCrossAxisExtent = 500;
-          childAspectRatio = 1.6;
-          horizontalPadding = 30;
+          cardWidth = (availableWidth - 20) / 2; // 20 = spacing
         } else {
-          // Tablette - 1 colonne
-          maxCrossAxisExtent = 400;
-          childAspectRatio = 1.4;
-          horizontalPadding = 20;
+          // Tablette - 2 colonnes aussi
+          cardWidth = (availableWidth - 20) / 2; // 20 = spacing
         }
 
-        return Padding(
-          padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
-          child: GridView.builder(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: maxCrossAxisExtent,
-              childAspectRatio: childAspectRatio,
-              crossAxisSpacing: 20,
-              mainAxisSpacing: 20,
+        return Wrap(
+          spacing: 20, // Espacement horizontal entre les cartes
+          runSpacing: 20, // Espacement vertical entre les lignes
+          children: experiences.map((experience) => SizedBox(
+            width: cardWidth,
+            child: Cardofrecentexperience(
+              titre: experience['titre'],
+              description: experience['description'],
+              datedebut: experience['datedebut'],
+              datefin: experience['datefin'],
+              entreprise: experience['entreprise'],
+              poste: experience['poste'],
             ),
-            itemCount: experiences.length,
-            itemBuilder: (context, index) {
-              final experience = experiences[index];
-              return Cardofrecentexperience(
-                titre: experience['titre'],
-                description: experience['description'],
-                datedebut: experience['datedebut'],
-                datefin: experience['datefin'],
-                entreprise: experience['entreprise'],
-                poste: experience['poste'],
-              );
-            },
-          ),
+          )).toList(),
         );
       },
     );

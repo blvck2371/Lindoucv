@@ -27,7 +27,7 @@ class Cardofrecentexperience extends StatelessWidget {
 
         return Container(
           width: double.infinity,
-          padding: EdgeInsets.all(isMobile ? 20 : 16),
+          padding: EdgeInsets.all(isMobile ? 20 : 12),
           margin: EdgeInsets.symmetric(vertical: isMobile ? 12 : 8),
           decoration: BoxDecoration(
             color: Theme.of(context).brightness == Brightness.light 
@@ -71,7 +71,7 @@ class Cardofrecentexperience extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: isMobile ? 16 : 10),
+              SizedBox(height: isMobile ? 16 : 8),
 
               /// Titre
               Flexible(
@@ -87,7 +87,7 @@ class Cardofrecentexperience extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: isMobile ? 12 : 8),
+              SizedBox(height: isMobile ? 12 : 6),
 
               /// Entreprise
               Row(
@@ -135,7 +135,7 @@ class Cardofrecentexperience extends StatelessWidget {
                 ],
               ),
 
-              SizedBox(height: isMobile ? 16 : 10),
+              SizedBox(height: isMobile ? 16 : 8),
 
               /// Description
               Text(
