@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:lindoucv/features/competences/widgets/CardOfCompetence.dart';
+import 'package:lindoucv/features/competences/widgets/CompetenceGrid.dart';
 import 'package:lindoucv/features/home/widgets/CardofRecentExperience.dart';
+import 'package:lindoucv/features/home/widgets/ExperienceGrid.dart';
 import 'package:lindoucv/shared/widgets/annimation.dart';
 import 'package:lindoucv/shared/widgets/titleAndViewAll.dart';
 import 'package:lindoucv/core/theme/app_spacing.dart';
@@ -20,10 +22,14 @@ class _HomeState extends State<Home> {
   final ThemeController themeController = Get.find();
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 600;
+    final horizontalPadding = isMobile ? 20.0 : (screenWidth > 1200 ? 60.0 : 40.0);
+    
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+          margin: EdgeInsets.only(left: horizontalPadding, right: horizontalPadding, bottom: 20),
           child: Column(
             children: [
               25.vSpace,
@@ -352,85 +358,41 @@ class _HomeState extends State<Home> {
                 startOffsetX: -0.0,
                 startOffsetY: 0.2,
 
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    15.vSpace,
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 7),
-                      child: Column(
-                        children: [
-                          Cardofcompetence(
-                            title: 'Langages de programmation',
-                            icone: Icons.code,
-                            list: [
-                              'JavaScript',
-                              'Python',
-                              'Java',
-                              'C++',
-                              'Dart',
-                              'PHP',
-                              'C#',
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    10.vSpace,
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 7),
-                      child: Column(
-                        children: [
-                          Cardofcompetence(
-                            title: 'Frameworks et bibliothèques',
-                            icone: Icons.web,
-                            list: ['React', 'Angular', 'Vue.js', 'Flutter'],
-                          ),
-                        ],
-                      ),
-                    ),
-                    10.vSpace,
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 7),
-                      child: Column(
-                        children: [
-                          Cardofcompetence(
-                            title: 'Bases de données',
-                            icone: Icons.storage,
-                            list: ['MySQL', 'PostgreSQL', 'MongoDB', 'SQLite'],
-                          ),
-                        ],
-                      ),
-                    ),
-                    10.vSpace,
-                    //Outils de design et de prototypage
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 7),
-                      child: Column(
-                        children: [
-                          Cardofcompetence(
-                            title: 'Outils de design et de prototypage',
-                            icone: Icons.design_services,
-                            list: ['Figma', 'Adobe XD', 'Sketch', 'InVision'],
-                          ),
-                        ],
-                      ),
-                    ),
-                    10.vSpace,
-                    //Outils de gestion de projet
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 7),
-                      child: Column(
-                        children: [
-                          Cardofcompetence(
-                            title: 'Outils de gestion de projet',
-                            icone: Icons.task,
-                            list: ['Jira', 'Trello', 'Asana', 'Git'],
-                          ),
-                        ],
-                      ),
-                    ),
-                    10.vSpace,
+                child: CompetenceGrid(
+                  competences: [
+                    {
+                      'title': 'Langages de programmation',
+                      'icone': Icons.code,
+                      'list': [
+                        'JavaScript',
+                        'Python',
+                        'Java',
+                        'C++',
+                        'Dart',
+                        'PHP',
+                        'C#',
+                      ],
+                    },
+                    {
+                      'title': 'Frameworks et bibliothèques',
+                      'icone': Icons.web,
+                      'list': ['React', 'Angular', 'Vue.js', 'Flutter'],
+                    },
+                    {
+                      'title': 'Bases de données',
+                      'icone': Icons.storage,
+                      'list': ['MySQL', 'PostgreSQL', 'MongoDB', 'SQLite'],
+                    },
+                    {
+                      'title': 'Outils de design et de prototypage',
+                      'icone': Icons.design_services,
+                      'list': ['Figma', 'Adobe XD', 'Sketch', 'InVision'],
+                    },
+                    {
+                      'title': 'Outils de gestion de projet',
+                      'icone': Icons.task,
+                      'list': ['Jira', 'Trello', 'Asana', 'Git'],
+                    },
                   ],
                 ),
               ),
@@ -445,37 +407,30 @@ class _HomeState extends State<Home> {
 
               15.vSpace,
 
-              Cardofrecentexperience(
-                titre: 'Développement web & mobile avec Firebase',
-                description:
-                    'Développement web et mobile chez Envol. Durant cette période, j\'ai travaillé sur des projets de développement web et mobile en utilisant Firebase comme backend. J\'ai conçu et développé des applications web et mobiles performantes, sécurisées et évolutives. J\'ai également intégré des fonctionnalités telles que l\'authentification des utilisateurs, la gestion des données en temps réel et le stockage de fichiers. Mon rôle a impliqué la collaboration avec des équipes multidisciplinaires pour assurer la qualité et la performance des applications.',
-
-                datedebut: 'Janvier 2025',
-                datefin: 'Présent',
-                entreprise: 'Envol',
-                poste: 'Développeur web et mobile',
-              ),
-
-              Cardofrecentexperience(
-                titre: 'Développement d\'applications Flutter',
-                description:
-                    'Développement d\'applications mobiles multiplateformes avec Flutter. J\'ai créé des interfaces utilisateur réactives et performantes, intégré des API RESTful, et implémenté des fonctionnalités avancées comme la gestion d\'état, la navigation et l\'optimisation des performances. Collaboration étroite avec les équipes de design pour assurer une expérience utilisateur optimale.',
-
-                datedebut: 'Septembre 2024',
-                datefin: 'Décembre 2024',
-                entreprise: 'Projet personnel',
-                poste: 'Développeur Flutter',
-              ),
-
-              Cardofrecentexperience(
-                titre: 'Developpeement web & mobile avec Firebase',
-                description:
-                    ' dev web et mobile propre chez envol et durant cette période, jai travaillé sur des projets de développement web et mobile en utilisant Firebase comme backend. Jai conçu et développé des applications web et mobiles performantes, sécurisées et évolutives.  Jai également intégré des fonctionnalités telles que lauthentification des utilisateurs, la gestion des données en temps réel et le stockage de fichiers. Mon rôle a impliqué la collaboration avec des équipes multidisciplinaires pour assurer la qualité et la performance des applications. ',
-
-                datedebut: 'fev-2024 à jan-2025',
-                datefin: 'présent',
-                entreprise: 'IEF2i',
-                poste: 'Developpeur web et mobile ',
+              DelayedAnimation(
+                delay: 400,
+                startOffsetX: -0.0,
+                startOffsetY: 0.2,
+                child: ExperienceGrid(
+                  experiences: [
+                    {
+                      'titre': 'Développement web & mobile avec Firebase',
+                      'description': 'Développement web et mobile chez Envol. Durant cette période, j\'ai travaillé sur des projets de développement web et mobile en utilisant Firebase comme backend. J\'ai conçu et développé des applications web et mobiles performantes, sécurisées et évolutives. J\'ai également intégré des fonctionnalités telles que l\'authentification des utilisateurs, la gestion des données en temps réel et le stockage de fichiers. Mon rôle a impliqué la collaboration avec des équipes multidisciplinaires pour assurer la qualité et la performance des applications.',
+                      'datedebut': 'Janvier 2025',
+                      'datefin': 'Présent',
+                      'entreprise': 'Envol',
+                      'poste': 'Développeur web et mobile',
+                    },
+                    {
+                      'titre': 'Développement d\'applications Flutter',
+                      'description': 'Développement d\'applications mobiles multiplateformes avec Flutter. J\'ai créé des interfaces utilisateur réactives et performantes, intégré des API RESTful, et implémenté des fonctionnalités avancées comme la gestion d\'état, la navigation et l\'optimisation des performances. Collaboration étroite avec les équipes de design pour assurer une expérience utilisateur optimale.',
+                      'datedebut': 'Septembre 2024',
+                      'datefin': 'Décembre 2024',
+                      'entreprise': 'Projet personnel',
+                      'poste': 'Développeur Flutter',
+                    },
+                  ],
+                ),
               ),
 
               25.vSpace,
